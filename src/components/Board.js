@@ -16,11 +16,8 @@ class Board extends Component {
       numriKokave: 0,
       numriNumrave: 0,
       value: 0,
-      //count: 0,
     };
     this.handleClick = this.handleClick.bind(this);
-    this.buttonClicked = this.buttonClicked.bind(this);
-    //this.sideCounter = this.sideCounter(this);
   }
   handleClick() {
     let random = Math.floor(Math.random() * 2);
@@ -30,44 +27,33 @@ class Board extends Component {
         numriKokave: this.state.numriKokave + 1,
         toss: this.props.coin[1],
       });
-      console.log("Koka");
     } else {
       this.setState({
         numriNumrave: this.state.numriNumrave + 1,
         toss: this.props.coin[0],
       });
-      console.log("Numri");
     }
-  }
-
-  // sideCounter() {
-  //   this.setState({ count: });
-  // }
-
-  buttonClicked() {
     this.setState({ value: this.state.value + 1 });
-    console.log("counter");
   }
 
   render() {
+    const { toss, value, numriKokave, numriNumrave } = this.state;
     return (
       <div className="center">
-        <Coin toss={this.state.toss} />
+        <Coin toss={toss} />
         <br />
         <button
           type="button"
           className="butoni"
           onClick={() => {
             this.handleClick();
-            this.buttonClicked();
-            //this.sideCounter();
           }}
         >
           Kliko per te hedhur
         </button>
         <br />
-        Prej {this.state.value} hedhjeve, {this.state.numriKokave} jane koka dhe{" "}
-        {this.state.numriNumrave} jane numra
+        Prej {value} hedhjeve, {numriKokave} jane koka dhe {numriNumrave} jane
+        numra
       </div>
     );
   }
