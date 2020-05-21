@@ -13,8 +13,8 @@ class Board extends Component {
     super(props);
     this.state = {
       toss: this.props.coin[0],
-      numriKokave: 0,
-      numriNumrave: 0,
+      koka: 0,
+      numra: 0,
       value: 0,
     };
     this.handleClick = this.handleClick.bind(this);
@@ -24,12 +24,12 @@ class Board extends Component {
     let newRoll = random ? true : false;
     if (newRoll) {
       this.setState({
-        numriKokave: this.state.numriKokave + 1,
+        koka: this.state.koka + 1,
         toss: this.props.coin[1],
       });
     } else {
       this.setState({
-        numriNumrave: this.state.numriNumrave + 1,
+        numra: this.state.numra + 1,
         toss: this.props.coin[0],
       });
     }
@@ -37,7 +37,7 @@ class Board extends Component {
   }
 
   render() {
-    const { toss, value, numriKokave, numriNumrave } = this.state;
+    const { toss, value, koka, numra } = this.state;
     return (
       <div className="center">
         <Coin toss={toss} />
@@ -52,8 +52,7 @@ class Board extends Component {
           Kliko per te hedhur
         </button>
         <br />
-        Prej {value} hedhjeve, {numriKokave} jane koka dhe {numriNumrave} jane
-        numra
+        Prej {value} hedhjeve, {koka} jane koka dhe {numra} jane numra
       </div>
     );
   }
