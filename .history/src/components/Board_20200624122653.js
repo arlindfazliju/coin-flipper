@@ -24,7 +24,6 @@ class Board extends Component {
     return (
       <div className="center">
         <Coin toss={this.state.lastRoll} />
-        <br />
         <button
           type="button"
           className="butoni"
@@ -32,7 +31,6 @@ class Board extends Component {
         >
           Kliko per te hedhur
         </button>
-        <br />
         Prej {this.state.value} gjuajtjeve, {this.state.koka} jane koka dhe{" "}
         {this.state.numra} jane numra
       </div>
